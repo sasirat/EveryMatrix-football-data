@@ -2,6 +2,9 @@ import Lineup from '../components/Lineup'
 import Layout from '../components/Layout'
 import Bench from '../components/bench'
 import Referees from '../components/Referees'
+import Goal from '../components/Goal'
+import Substitutions from '../components/Substitutions'
+import Bookings from '../components/Bookings'
 
 const Match = () => {
   return (
@@ -28,6 +31,9 @@ const Match = () => {
           </div>
         </div>
         <Referees />
+        <Goal />
+        <Substitutions />
+        <Bookings />
       </Layout>
     </div>
   )
