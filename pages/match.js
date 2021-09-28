@@ -1,7 +1,7 @@
 import Lineup from '../components/Lineup'
 import Layout from '../components/Layout'
-import LineUp from '../components/Lineup'
 import Bench from '../components/bench'
+import Referees from '../components/Referees'
 
 const Match = () => {
   return (
@@ -27,6 +27,7 @@ const Match = () => {
             <Bench />
           </div>
         </div>
+        <Referees />
       </Layout>
     </div>
   )
