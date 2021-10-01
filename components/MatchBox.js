@@ -38,7 +38,7 @@ const MatchBox = () => {
           <div className="flex flex-1 justify-center items-center">
             <div>
               {item.status == "FINISHED" ?
-                (<> <p className="text-center font-bold text-lg">
+                (<> <p className="text-center font-bold text-lg " key={item.id}>
                   <span>{item.score.fullTime.homeTeam}</span>
                   <span className="mx-4">:</span>
                   <span>{item.score.fullTime.awayTeam}</span>
