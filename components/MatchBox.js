@@ -43,14 +43,14 @@ const MatchBox = () => {
                   <span className="mx-4">:</span>
                   <span>{item.score.fullTime.awayTeam}</span>
                 </p>
-                  <div>
+                  <div key={item.id}>
                     <span>{item.homeTeam.name}</span>
                     <span className="mx-4">VS</span>
                     <span>{item.awayTeam.name}</span>
                   </div>
                 </>
                 ) : (
-                  <div>
+                  <div key={item.id}>
                     <span>{item.homeTeam.name}</span>
                     <span className="mx-4">VS</span>
                     <span>{item.awayTeam.name}</span>
