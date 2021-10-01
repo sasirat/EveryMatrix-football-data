@@ -9,8 +9,7 @@ const MatchBox = () => {
 
   useEffect(() => {
     setLoading(true);
-
-    axios.get('https://api.football-data.org/v2/matches').then((response) => {
+    axios.get(['https://api.football-data.org/v2/matches']).then((response) => {
       setData(response.data);
       setLoading(false);
     });
@@ -26,8 +25,8 @@ const MatchBox = () => {
 
   return (
     data.matches.map((item) => (
-      <Link href={`/matches/${item.id}`}>
-        <div className="shadow-md flex px-4 py-6 rounded-md my-4">
+      <Link href={`/matches/${item.id}`} key={item.id}>
+        <div className="shadow-md flex px-4 py-6 rounded-md my-4 md:text-base text-xs">
           {item.status == "FINISHED" ?
             (<div className="py-1 px-4 rounded-full font-bold m-auto" style={{ backgroundColor: '#D6EFEB', color: '#439287' }}>
               finished
@@ -35,26 +34,26 @@ const MatchBox = () => {
             (<div className="py-1 px-4 rounded-full font-bold m-auto" style={{ backgroundColor: '#D6EFEB', color: '#439287' }}>
               {dayjs(item.utcDate).format('HH:mm')}
             </div>)}
-          <div className="flex flex-1 justify-center items-center">
+          <div className="flex flex-1 justify-center items-center ml-4 text-center">
             <div>
               {item.status == "FINISHED" ?
-                (<div key={item.id}>
-                  <p className="text-center font-bold text-lg ">
-                    <span>{item.score.fullTime.homeTeam}</span>
-                    <span className="mx-4">:</span>
-                    <span>{item.score.fullTime.awayTeam}</span>
-                  </p>
-                  <div key={item.id}>
-                    <span>{item.homeTeam.name}</span>
-                    <span className="mx-4">VS</span>
-                    <span>{item.awayTeam.name}</span>
+                (<div>
+                  <div className="text-center font-bold text-lg flex">
+                    <p>{item.score.fullTime.homeTeam}</p>
+                    <p className="mx-4">:</p>
+                    <p>{item.score.fullTime.awayTeam}</p>
+                  </div>
+                  <div className="flex">
+                    <p>{item.homeTeam.name}</p>
+                    <p className="mx-4">VS</p>
+                    <p>{item.awayTeam.name}</p>
                   </div>
                 </div>
                 ) : (
-                  <div key={item.id}>
-                    <span>{item.homeTeam.name}</span>
-                    <span className="mx-4">VS</span>
-                    <span>{item.awayTeam.name}</span>
+                  <div className="flex">
+                    <p>{item.homeTeam.name}</p>
+                    <p className="mx-4">VS</p>
+                    <p>{item.awayTeam.name}</p>
                   </div>
                 )
               }
