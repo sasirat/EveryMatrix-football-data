@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react'
 import axios from '../../utils/api';
 import Layout from '../../components/Layout';
+import Link from 'next/link'
 
 const Match = () => {
   const router = useRouter();
@@ -40,15 +41,19 @@ const Match = () => {
         }
       </div>
       <div className="flex w-full my-8">
-        <div className="flex-1">
-          <p className="font-bold text-center mb-4">{data.match.homeTeam.name}</p>
-        </div>
+        <Link href={`/teams/${data.match.homeTeam.id}`} >
+          <div className="flex-1 flex justify-center items-center w-full">
+            <p className="font-bold text-center mb-4 w-full py-1 rounded-full" style={{ backgroundColor: '#D6EFEB', color: '#439287' }} >{data.match.homeTeam.name}</p>
+          </div>
+        </Link>
         <div className="mx-6 font-bold my-auto">
           <p>VS</p>
         </div>
-        <div className="flex-1">
-          <p className="font-bold text-center mb-4">{data.match.awayTeam.name}</p>
-        </div>
+        <Link href={`/teams/${data.match.awayTeam.id}`}>
+          <div className="flex-1 flex justify-center items-center w-full">
+            <p className="font-bold text-center mb-4 w-full py-1 rounded-full" style={{ backgroundColor: '#D6EFEB', color: '#439287' }} >{data.match.awayTeam.name}</p>
+          </div>
+        </Link>
       </div>
       {data.head2head == null ?
         (
