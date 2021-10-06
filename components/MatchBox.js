@@ -40,7 +40,7 @@ const MatchBox = () => {
                 <div>
                   {item.status == "FINISHED" ?
                     (<div>
-                      <div className="text-center font-bold text-lg flex">
+                      <div className="text-center font-bold text-lg flex justify-center text-center">
                         <p>{item.score.fullTime.homeTeam}</p>
                         <p className="mx-4">:</p>
                         <p>{item.score.fullTime.awayTeam}</p>
